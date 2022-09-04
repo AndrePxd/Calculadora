@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/bloc/calculator/calculator_bloc.dart';
 import 'package:flutter_application_1/widgets/calc_button.dart';
-import 'package:flutter_application_1/widgets/line_separator.dart';
-import 'package:flutter_application_1/widgets/main_result.dart';
-import 'package:flutter_application_1/widgets/sub_result.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '/widgets/calc_results.dart';
 
 class CalculatorScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final calculatorBloc = BlocProvider.of<CalculatorBloc>(context);
+
     return Scaffold(
         body: SafeArea(
       child: Container(
@@ -16,60 +19,56 @@ class CalculatorScreen extends StatelessWidget {
             Expanded(
               child: Container(),
             ),
-            SubResult(text: '1000'),
-            SubResult(text: 'X'),
-            SubResult(text: '1000'),
-            LineSeparator(),
-            MainResultText(text: '2000'),
+            ResultsLabels(),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 CalculatorButton(
-                  text: 'C',
-                  btncolor: Colors.amber,
-                  onPressed: () => print('C'),
+                  text: 'AC',
+                  btncolor: Color(0xffA5A5A5),
+                  onPressed: () => calculatorBloc.add(ResetC()),
                 ),
                 CalculatorButton(
                   text: '+/-',
-                  btncolor: Colors.amber,
+                  btncolor: Color(0xffA5A5A5),
                   onPressed: () => print('+/-'),
                 ),
                 CalculatorButton(
                   text: 'del',
-                  btncolor: Colors.amber,
+                  btncolor: Color(0xffA5A5A5),
                   onPressed: () => print('del'),
                 ),
                 CalculatorButton(
                   text: '/',
-                  btncolor: Colors.purple,
+                  btncolor: Color(0xffF0A23B),
                   onPressed: () => print('/'),
                 ),
               ],
             ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 CalculatorButton(
                   text: '7',
-                  onPressed: () => print('7'),
+                  onPressed: () => calculatorBloc.add(AddNumber('7')),
                 ),
                 CalculatorButton(
                   text: '8',
-                  onPressed: () => print('8'),
+                  onPressed: () => calculatorBloc.add(AddNumber('8')),
                 ),
                 CalculatorButton(
                   text: '9',
-                  onPressed: () => print('9'),
+                  onPressed: () => calculatorBloc.add(AddNumber('9')),
                 ),
                 CalculatorButton(
                   text: 'X',
-                  btncolor: Colors.purple,
+                  btncolor: Color(0xffF0A23B),
                   onPressed: () => print('X'),
                 ),
               ],
             ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 CalculatorButton(
                   text: '4',
@@ -85,13 +84,13 @@ class CalculatorScreen extends StatelessWidget {
                 ),
                 CalculatorButton(
                   text: '-',
-                  btncolor: Colors.purple,
+                  btncolor: Color(0xffF0A23B),
                   onPressed: () => print('-'),
                 ),
               ],
             ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 CalculatorButton(
                   text: '1',
@@ -107,13 +106,13 @@ class CalculatorScreen extends StatelessWidget {
                 ),
                 CalculatorButton(
                   text: '+',
-                  btncolor: Colors.purple,
+                  btncolor: Color(0xffF0A23B),
                   onPressed: () => print('+'),
                 ),
               ],
             ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 CalculatorButton(
                   text: '0',
@@ -126,8 +125,7 @@ class CalculatorScreen extends StatelessWidget {
                 ),
                 CalculatorButton(
                   text: '=',
-                  btncolor: Colors.purple,
-                  //  btntext: Colors.white,
+                  btncolor: Color(0xffF0A23B),
                   onPressed: () => print('='),
                 ),
               ],

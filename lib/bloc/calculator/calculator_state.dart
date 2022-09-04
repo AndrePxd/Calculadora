@@ -7,10 +7,11 @@ class CalculatorState {
   final String ope;
 
   CalculatorState(
-      {this.mathResulth = '30',
-      this.num1 = '10',
-      this.num2 = '20',
+      {this.mathResulth = '45',
+      this.num1 = '30',
+      this.num2 = '15',
       this.ope = '+'});
 }
+
 
 //class CalculatorInitial extends CalculatorState {}

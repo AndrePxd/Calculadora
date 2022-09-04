@@ -4,25 +4,25 @@ class CalculatorButton extends StatelessWidget {
   final Color btncolor;
   final bool big;
   final String text;
-  final Color btntext;
+  //final Color btntext;
   final Function onPressed;
 
   CalculatorButton({
     Key? key,
     btncolor,
-    btntext,
+//    btntext,
     this.big = false,
     required this.text,
     required this.onPressed,
-  })  : this.btncolor = btncolor ?? Color(0xff333333),
-        this.btntext = btntext ?? Color(0xff333333),
+  })  : btncolor = btncolor ?? Color(0xff333333),
+        // this.btntext = btntext ?? Color(0xff333333),
         super(key: key);
 
   @override
   Widget build(BuildContext context) {
     // Button
     final buttonStyle = TextButton.styleFrom(
-      backgroundColor: this.btncolor,
+      backgroundColor: btncolor,
       primary: Colors.white,
       shape: StadiumBorder(),
     );
@@ -32,15 +32,15 @@ class CalculatorButton extends StatelessWidget {
       child: TextButton(
         style: buttonStyle,
         child: Container(
-          width: this.big ? 220 : 70,
+          width: big ? 220 : 70,
           height: 65,
           child: Center(
               child: Text(
-            this.text,
+            text,
             style: TextStyle(fontSize: 40, fontWeight: FontWeight.w500),
           )),
         ),
-        onPressed: () => this.onPressed(),
+        onPressed: () => onPressed(),
       ),
     );
   }

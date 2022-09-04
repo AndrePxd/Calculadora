@@ -23,8 +23,9 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         //title: "Calculadora",
         title: "",
-        theme: ThemeData.dark().copyWith(scaffoldBackgroundColor: Colors.black),
-        home: CalculatorScreen());
+        home: CalculatorScreen(),
+        theme:
+            ThemeData.dark().copyWith(scaffoldBackgroundColor: Colors.black));
   }
 }
 
