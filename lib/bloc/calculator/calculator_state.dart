@@ -5,12 +5,14 @@ class CalculatorState {
   final String num1;
   final String num2;
   final String ope;
+  final String hola;
 
   CalculatorState(
       {this.mathResulth = '45',
       this.num1 = '30',
       this.num2 = '15',
-      this.ope = '+'});
+      this.ope = '+',
+      this.hola = "P"});
 }
 
 
