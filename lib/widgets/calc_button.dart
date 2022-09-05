@@ -32,7 +32,7 @@ class CalculatorButton extends StatelessWidget {
       child: TextButton(
         style: buttonStyle,
         child: Container(
-          width: big ? 220 : 70,
+          width: big ? 210 : 70,
           height: 65,
           child: Center(
               child: Text(

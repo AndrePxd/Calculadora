@@ -13,13 +13,19 @@ class ResultsLabels extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<CalculatorBloc, CalculatorState>(
       builder: (context, state) {
-        return Column(
+        return Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            SubResult(text: state.num1),
+            Expanded(child: SubResult(text: state.num1)),
+            Expanded(child: SubResult(text: state.ope)),
+            Expanded(child: SubResult(text: state.num2)),
+            Expanded(child: LineSeparator()),
+            Expanded(child: SubResult(text: state.mathResulth))
+            /*    SubResult(text: state.num1),
             SubResult(text: state.ope),
             SubResult(text: state.num2),
             LineSeparator(),
-            MainResultText(text: state.mathResulth),
+            MainResultText(text: state.mathResulth),*/
           ],
         );
       },
